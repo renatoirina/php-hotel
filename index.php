@@ -40,6 +40,16 @@ $hotels = [
 
 ];
 
+for ($i = 0; $i < count($hotels); $i++) {
+    echo '<h2>' . $hotels[$i]['name'] . '</h2>';
+    echo '<p>' . $hotels[$i]['description'] . '</p>';
+    echo '<p>Parcheggio: ' . ($hotels[$i]['parking'] ? 'Disponibile' : 'Non disponibile') . '</p>';
+    echo '<p>Voto: ' . $hotels[$i]['vote'] . '</p>';
+    echo '<p>Distanza dal centro: ' . $hotels[$i]['distance_to_center'] . ' km</p>';
+    echo '<hr>';
+}
+
+
 ?>
 
 <!DOCTYPE html>
