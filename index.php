@@ -1,7 +1,6 @@
 <?php
 
 $hotels = [
-
     [
         'name' => 'Hotel Belvedere',
         'description' => 'Hotel Belvedere Descrizione',
@@ -37,32 +36,47 @@ $hotels = [
         'vote' => 2,
         'distance_to_center' => 50
     ],
-
 ];
 
+$hotelRows = '';
 for ($i = 0; $i < count($hotels); $i++) {
-    echo '<h2>' . $hotels[$i]['name'] . '</h2>';
-    echo '<p>' . $hotels[$i]['description'] . '</p>';
-    echo '<p>Parcheggio: ' . ($hotels[$i]['parking'] ? 'Disponibile' : 'Non disponibile') . '</p>';
-    echo '<p>Voto: ' . $hotels[$i]['vote'] . '</p>';
-    echo '<p>Distanza dal centro: ' . $hotels[$i]['distance_to_center'] . ' km</p>';
-    echo '<hr>';
+    $hotelRows .= '<tr>';
+    $hotelRows .= '<td>' . $hotels[$i]['name'] . '</td>';
+    $hotelRows .= '<td>' . $hotels[$i]['description'] . '</td>';
+    $hotelRows .= '<td>' . ($hotels[$i]['parking'] ? 'Disponibile' : 'Non disponibile') . '</td>';
+    $hotelRows .= '<td>' . $hotels[$i]['vote'] . '</td>';
+    $hotelRows .= '<td>' . $hotels[$i]['distance_to_center'] . '</td>';
+    $hotelRows .= '</tr>';
 }
-
-
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
+<!DOCTYPE html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP HOTEL</title>
+    <title>PHP Hotel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
-
+<div class="container my-4">
+    <h1 class="mb-4">Lista degli Hotel</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrizione</th>
+                <th>Parcheggio</th>
+                <th>Voto</th>
+                <th>Distanza dal centro (km)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php echo $hotelRows; ?>
+        </tbody>
+    </table>
+</div>
 </body>
-
 </html>
